@@ -53,7 +53,6 @@ function validateInput(input) {
   if (isNaN(input) || (input % 1 != 0) || input === '') {    
     flashMessage.innerHTML = 'You must enter an integer value'
     flashMessage.style.display = 'block'
-    // flashMessage.style.backgroundColor = 'red'
     throw new Error('You must enter an integer value')
   } else if (input <= 0) {    
     flashMessage.innerHTML = 'You must enter a numeric value greater than cero'

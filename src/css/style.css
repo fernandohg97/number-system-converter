@@ -16,8 +16,6 @@ body {
   background-color: #C14343;
 }
 
-
-
 .triangle-corner {
     top: 0;
     right: -13em;
@@ -31,13 +29,10 @@ body {
 }
 
 
-
 header {
     text-align: center;
     margin-top: 40px;
 }
-
-/* @media only screen and (max-width: 640px) */
 
 .logo img {
     width: 3.8%;
@@ -261,7 +256,7 @@ footer {
 /* Only for medium screen devices */
 @media only screen and (min-width: 651px) and (max-width: 1199px) {
     .logo img {
-        width: 7%;
+        width: 6.5%;
     }
     .input-number, .output-number {
         width: 25%;
@@ -275,7 +270,7 @@ footer {
         border-bottom: 15em solid #3F454A;
     }
     .app-description {
-        margin-bottom: 85px;
+        margin-bottom: 75px;
     }
 }
 
