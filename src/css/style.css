@@ -34,7 +34,7 @@ body {
 
 header {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 /* @media only screen and (max-width: 640px) */
@@ -281,9 +281,6 @@ footer {
 
 /* Only for large screen devices */
 @media only screen and (min-width: 1200px) {
-    header {
-      margin-top: 70px;
-    }
 
     footer:before {
         content: '';
@@ -301,8 +298,17 @@ footer {
         color: black;
     }
     .app-description {
-        margin-bottom: 100px;
+        margin-bottom: 80px;
     }    
+}
+
+@media only screen and (min-height: 800px) {
+  header {
+    margin-top: 90px;
+  }
+  .app-description {
+    margin-bottom: 120px;
+  }
 }
 
 /* @media only screen and (min-width: 1400px) {
