@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Number system converter</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Questrial|Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div id="flashMessage" class="flash-msg success-msg error-msg"></div>
+
+    <!-- <div class="flash-message" data-type="success" data-timeout="8000">My awesome success message !</div>
+        <div class="flash-message" data-type="error" data-timeout="8000">My sadly sad error message !</div> -->
+    <div class="triangle-corner"></div>
+
+    <header class="logo">
+      <img src="./img/logo.svg" alt="Logo app">
+    </header>
+
+    <section class="app-description">
+      <div class="app-description-container">
+        <h1>Number system converter</h1>
+        <p class="subhead">Convert decimal to binary and vice versa</p>
+      </div>
+    </section>
+
+    <section class="form-app-description">
+      <button id="changeSystem" class="btn-converter"></button>
+
+      <div class="form-app">
+        <input id="userInput" type="text" class="input-number" placeholder="Enter a decimal number">
+        <button id="btnConversion" class="btn-show-result">CONVERT</button>
+        <input id="outputNumber" type="text" class="output-number" placeholder="...">
+        <button id="resetBtn" class="reset-btn"><i class="fas fa-undo fa-lg"></i></button>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <ul class="footer-links">
+          <li>Project by <a href="https://www.instagram.com/_ferh97/?hl=es-la" target="_blank">@_ferh97</a></li>
+          <li>Collaborate on <a href="https://github.com/fernandohg97" target="_blank">Github</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/flash.min.js"></script>
+</body>
+
+</html>
