@@ -21,9 +21,9 @@ body {
 .triangle-corner {
     top: 0;
     right: -13em;
-    border-left: 18em solid transparent;
-	  border-right: 18em solid transparent;
-    border-bottom: 18em solid #3F454A;
+    border-left: 16em solid transparent;
+	  border-right: 16em solid transparent;
+    border-bottom: 16em solid #3F454A;
     top: -3em;
     transform: rotate(45deg);
     position: absolute;
@@ -60,7 +60,7 @@ h1 {
 
 
 .helper-text {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   margin: 0 1.5em;
   display: inline-block;
