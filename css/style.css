@@ -8,12 +8,14 @@ body {
 
 .flash-msg {
   display: none;
-  width: 100%;
+  width: 50%;
   text-align: center;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
   padding: 0.8em;
-  background-color: #C14343;
+  color: white;
+  background: linear-gradient(to right, #EC5050, #972626);
 }
 
 .triangle-corner {
@@ -56,102 +58,93 @@ h1 {
     margin-top: -0.6em;
 }
 
-.btn-from-converter, .btn-to-converter {
-    margin: 0 auto;
-    background: linear-gradient(to right, #2F78AA, #004B7D);
-    width: 11%;
-    display: inline-block;
-    color: #fff; 
-    border-radius: 3px;
-    padding: 0.7em;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    z-index: 4;
-    border: none;
-    cursor: pointer;
-}
+
 .helper-text {
   font-size: 14px;
   font-weight: 500;
   margin: 0 1.5em;
+  display: inline-block;
 }
-/* Dropdown menu */
 
-.dropdown {
+
+/* Select menu */
+.select-menu{
   position: relative;
-  display: block;
-}
-.dropdown-menu {
-  display: none;
-  font-size: 14px;
-  z-index: 10;
-  border: solid 1px gray;
+  width: 12%;
+  display: inline-block;
   border-radius: 3px;
-  min-width: 11%;
-  list-style-type: none;
+}
+
+.select-menu select {
+  display: none;
+  z-index: 10;
+  border-radius: 3px;
   position: absolute;
   padding: 0;
 }
-.dropdown-menu li {
+
+.select-selected {
+  background: linear-gradient(to right, #2F78AA, #004B7D);
+  color: white;
+  border-radius: 3px;
+}
+.select-items div, .select-selected {
   padding: 0.5em;
-}
-.dropdown-menu li a {
-  text-decoration: none;
-  display: block;
-  color: #1E1E1E;
   text-align: center;
-}
-.dropdown-menu li:hover {
-  background: rgb(217, 217, 217, 0.3);
-}
-.show {
-  display: block;
+  cursor: pointer;
 }
 
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 120%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border: solid 1px gray;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* End select menu */
 
 .form-app {
     margin-top: 50px;
-    text-align: center;
 }
 input {
     font-family: 'Questrial', sans-serif;
+    font-size: 16px;
 }
 .input-number {
-    margin-right: 50px;
-    padding: 0.8em;
-    /* display: block; */
-    width: 14%;
-    border-radius: 3px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
     text-decoration: none;
-    border: solid thin #3D3D3D;
-}
-
-.output-number {
-    margin-left: 50px;
-    padding: 0.8em;
-    /* display: block; */
-    width: 14%;
-    border-radius: 3px;
-    text-decoration: none;
-    border: solid thin #3D3D3D;
+    border-bottom: solid thin #3D3D3D;
+    width: 28%;
+    padding-bottom: 4px;
+    padding-left: 2px;
 }
 
 .btn-show-result {
+    position: absolute;
     background: inherit;
-    border: none;
+    border: solid 1.5px #154261;
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
+    border-radius: 3px;
     color: #154261;
     cursor: pointer;
-}
-
-.btn-show-result:hover {
-    color: #4D6A7E;
+    padding: 0.7em 2.5em;
+    margin-top: -1em;
+    margin-left: 2em;
 }
 
 .reset-btn {
@@ -230,16 +223,9 @@ footer {
         padding: 0 0.5em;
     }
     .subhead {
-        font-size: 18px;
+        font-size: 16px;
         padding: 0 1.5em;
-    }
-    .btn-converter {
-        width: 50%;
-        color: #fff;
-        border-radius: 3px;
-        padding: 0.8em 0;
-        font-size: 14px;
-        font-weight: 500;
+        line-height: 1.5em;
     }
     .form-app * {
         display: block;
@@ -247,18 +233,21 @@ footer {
     .form-app {
         text-align: center;
     }
-    .input-number, .output-number, .btn-show-result {
-        margin: 0 auto;
+    .select-menu{
+      width: 28%;
+    }
+    .select-selected, .select-items {
+      font-size: 14px;
     }
     .btn-show-result {
-        padding: 1.5em 0;
-        font-size: 14px;
+        padding: 0.7em 2.5em;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 2em;
     }
-    .input-number, .output-number {
-        width: 65%;
-    }
-    .output-number {
-      display: inline-block;
+    .input-number {
+      margin: 0 auto;
+      width: 72%;
     }
     .reset-btn {
       margin: 0.7em 0 0 1em;
@@ -290,11 +279,14 @@ footer {
     .logo img {
         width: 6.5%;
     }
-    .input-number, .output-number {
-        width: 25%;
+    .input-number{
+        width: 52%;
     }
-    .btn-converter {
-        width: 28%;
+    .select-menu{
+      width: 22%;
+    }
+    .select-selected, .select-items {
+      font-size: 16px;
     }
     .triangle-corner {
         border-left: 15em solid transparent;
@@ -312,7 +304,7 @@ footer {
     footer:before {
         content: '';
         background: #fff;
-        width: 15%;
+        width: 20%;
         height: 100%;
         position: absolute;
         z-index: 3;
@@ -338,6 +330,41 @@ footer {
   }
 }
 
-/* @media only screen and (min-width: 1400px) {
- 
-} */
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #154261;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}

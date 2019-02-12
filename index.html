@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,30 +34,33 @@
 
     <section class="form-app-description">
       <div class="dropdown">
-        <button id="fromSystem" class="btn-from-converter">From</button>
-        <ul id="dropdownMenu1" class="dropdown-menu">
-          <li><a href="#">Decimal</a></li>
-          <li><a href="#">Binary</a></li>
-          <li><a href="#">Octal</a></li>
-          <li><a href="#">Hexadecimal</a></li>
-        </ul>
+        <!-- <button id="fromSystem" type="button" class="btn-from-converter">From</button> -->
+        <div id="selectMenu1" class="select-menu">
+          <select>
+            <option value="0">From</option>
+            <option value="1">Decimal</option>
+            <option value="2">Binary</option>
+            <option value="3">Octal</option>
+            <option value="4">Hexadecimal</option>
+          </select>
+        </div>
+
         <span class="helper-text">to</span>
-        <button id="toSystem" class="btn-to-converter">...</button>
-        <ul id="dropdownMenu2" class="dropdown-menu">
-            <li><a href="#">Decimal</a></li>
-            <li><a href="#">Binary</a></li>
-            <li><a href="#">Octal</a></li>
-            <li><a href="#">Hexadecimal</a></li>
-          </ul>
+        <div id="selectMenu2" class="select-menu">
+            <select>
+              <option value="0">...</option>
+              <option value="1">Decimal</option>
+              <option value="2">Binary</option>
+              <option value="3">Octal</option>
+              <option value="4">Hexadecimal</option>
+            </select>
+          </div>
       </div>
 
 
       <div class="form-app">
         <input id="userInput" type="text" class="input-number" placeholder="Enter a number">
-        <button id="btnConversion" class="btn-show-result">CONVERT</button>
-        <input id="outputNumber" type="text" class="output-number" placeholder="...">
-        <button id="resetBtn" class="reset-btn"><i class="fas fa-undo fa-lg"></i></button>
-
+        <button id="btnConversion" type="button" class="btn-show-result hvr-sweep-to-right">CONVERT</button>
       </div>
     </section>
 
@@ -69,6 +73,7 @@
       </div>
     </footer>
   </div>
+  <script src="./js/selectMenu.js"></script>
 
   <script src="./js/main.js"></script>
 </body>
