@@ -1,57 +1,137 @@
-const option1 = 'Binary to Decimal' // Option one button conversion
-const option2 = 'Decimal to Binary' // Option two button conversion
 
 // Get HTML elements and assign it to a variable
-let btnChangeSystem = document.getElementById('changeSystem')
+let btnChangeSystem = document.getElementById('fromOption')
 let userInput = document.getElementById('userInput')
 let btnConverter = document.getElementById('btnConversion')
 let outputNumber = document.getElementById('outputNumber')
 let flashMessage = document.getElementById('flashMessage')
-let resetBtn = document.getElementById('resetBtn')
 
+
+// -------------------------------------------
+
+let conversion = {}
+let x, i, j, selElmnt, a, b, c;
+/*look for any elements with the class "select-menu":*/
+x = document.getElementsByClassName('select-menu')
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        
+        let y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        console.log(s.getAttribute('name'));
+        
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            if (s.getAttribute('name') == 'fromMenu') {
+              conversion.from = s.options[i].innerHTML
+            } else {
+              conversion.to = s.options[i].innerHTML
+            }
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            console.log(y);
+            
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  let x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+  
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+
+// --------------------------------
 
 // Handle reset button to set input to empty or null values and hide flash messages
-resetBtn.addEventListener('click', function onReset(e) {  
+btnConverter.addEventListener('click', function onReset(e) {  
   // In case the input fields have been filled
-  if (userInput.innerHTML != ' ' || outputNumber.innerHTML != ' ' || flashMessage.style.display == 'block') {
-    userInput.value = outputNumber.value = flashMessage.innerHTML = null
-    flashMessage.style.display = 'none'
+  if (userInput.value === '' || !conversion.from || !conversion.to) {
+    setTimeout(function () {
+      flashMessage.style.display = 'none'
+    }, 4000)
+    flashMessage.innerHTML = 'Fill the required fields'
+    flashMessage.style.display = 'block'
+  } else {
+    if (conversion.from == 'Decimal' && conversion.to == 'Binary') {
+      toBinary(userInput.value, onConversion)
+    } else if (conversion.from == 'Binary' && conversion.to == 'Decimal') {
+      toDecimal(userInput.value, onConversion)
+    } else {
+      setTimeout(function () {
+        flashMessage.style.display = 'none'
+      }, 4000)
+      flashMessage.innerHTML = 'Please select two different numerical systems'
+      flashMessage.style.display = 'block'
+    }
   }
   e.preventDefault()
 })
 
-// Set variable option1 as default value to change button converter
-btnChangeSystem.innerHTML = option1
 
-// Handle event listener when change numeric system button is click
-btnChangeSystem.addEventListener('click', changeNumericSystem)
-
-// Handler for onclick event for button converter
-function changeNumericSystem(e) {
-  console.log(e);
-  // In case button change converter is option1
-  if (btnChangeSystem.innerHTML === option1) {
-    btnChangeSystem.innerHTML = option2
-    userInput.value = outputNumber.value = null
-    userInput.placeholder = 'Enter a binary number'
-  } else { // In case button change converter is option2
-    btnChangeSystem.innerHTML = option1
-    userInput.value = outputNumber.value = null
-    userInput.placeholder = 'Enter a decimal number'
-  }
-}
-
-// Handle event listener when conversion button is click
-btnConverter.addEventListener('click', function () {
-  btnChangeSystem.innerHTML === option1 ? toBinary(userInput.value, onConversion) : toDecimal(userInput.value, onConversion)
-  
-})
-
+// NUMERICAL SYSTEMS ALGORITHMS
 
 // Validate user input value function
 function validateInput(input) {
+  setTimeout(function () {
+    flashMessage.style.display = 'none'
+  }, 4000)   
   // In case input is not a number or is a decimal number
-  if (isNaN(input) || (input % 1 != 0) || input === '') {    
+  if (isNaN(input) || (input % 1 != 0) || input === '') { 
     flashMessage.innerHTML = 'You must enter an integer value'
     flashMessage.style.display = 'block'
     throw new Error('You must enter an integer value')
@@ -69,7 +149,12 @@ function onConversion(err, result) {
     console.log('Hubo un error: ' + err)
     return
   }
-  outputNumber.value = result
+  outputNumber.style.display = 'block'
+  outputNumber.innerHTML = result
+  setTimeout(function() {
+    outputNumber.style.display = 'none'
+    outputNumber.innerHTML = null
+  }, 10000)
   console.log(`The result is: ${result}`)
 }
 
@@ -121,5 +206,6 @@ function toDecimal(number, callback) {
   
 }
 
-// TODO:
-// Create binary to decimal algorithm
+
+
+
