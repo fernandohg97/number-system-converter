@@ -1,11 +1,10 @@
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Number system converter</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Questrial|Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Questrial|Raleway:400,600" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
@@ -28,15 +27,26 @@
     <section class="app-description">
       <div class="app-description-container">
         <h1>Number system converter</h1>
-        <p class="subhead">Convert decimal to binary and vice versa</p>
+        <p class="subhead">Convert numbers between different numerical systems</p>
       </div>
     </section>
 
     <section class="form-app-description">
-      <button id="changeSystem" class="btn-converter"></button>
+      <div class="dropdown">
+        <button id="fromSystem" class="btn-from-converter">From</button>
+        <ul id="dropdownMenu" class="dropdown-menu">
+          <li><a href="#">Decimal</a></li>
+          <li><a href="#">Binary</a></li>
+          <li><a href="#">Octal</a></li>
+          <li><a href="#">Hexadecimal</a></li>
+        </ul>
+        <span class="helper-text">to</span>
+        <button id="toSystem" class="btn-to-converter">...</button>
+      </div>
+
 
       <div class="form-app">
-        <input id="userInput" type="text" class="input-number" placeholder="Enter a decimal number">
+        <input id="userInput" type="text" class="input-number" placeholder="Enter a number">
         <button id="btnConversion" class="btn-show-result">CONVERT</button>
         <input id="outputNumber" type="text" class="output-number" placeholder="...">
         <button id="resetBtn" class="reset-btn"><i class="fas fa-undo fa-lg"></i></button>

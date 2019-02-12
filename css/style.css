@@ -52,21 +52,20 @@ h1 {
 }
 
 .subhead {
-    font-size: 22px;
-    margin-top: -0.5em;
-    /* margin-bottom: 90px; */
+    font-size: 21px;
+    margin-top: -0.6em;
 }
 
-.btn-converter {
+.btn-from-converter, .btn-to-converter {
     margin: 0 auto;
-    background: #206DA2;
-    width: 15%;
-    display: block;
-    color: #fff;
+    background: linear-gradient(to right, #2F78AA, #004B7D);
+    width: 11%;
+    display: inline-block;
+    color: #fff; 
     border-radius: 3px;
-    padding: 0.9em;
+    padding: 0.7em;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
     position: relative;
@@ -74,7 +73,39 @@ h1 {
     border: none;
     cursor: pointer;
 }
-
+.helper-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 1.5em;
+}
+/* Dropdown menu */
+.show {
+  display: block;
+}
+.dropdown {
+  position: relative;
+  /* display: block; */
+}
+.dropdown-menu {
+  display: none;
+  font-size: 14px;
+  z-index: 10;
+  border: solid 2px gray;
+  border-radius: 3px;
+  min-width: 11%;
+  list-style-type: none;
+  position: absolute;
+  padding: 0;
+}
+.dropdown-menu li {
+  padding: 0.5em;
+}
+.dropdown-menu li a {
+  text-decoration: none;
+  display: block;
+  color: #1E1E1E;
+  text-align: center;
+}
 
 /* .form-app-container {
     margin-bottom: 
