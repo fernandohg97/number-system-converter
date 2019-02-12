@@ -12,58 +12,65 @@
 </head>
 
 <body>
-
+  <!-- Container -->
   <div class="container">
 
     <div id="flashMessage" class="flash-msg success-msg error-msg"></div>
 
-    <!-- <div class="flash-message" data-type="success" data-timeout="8000">My awesome success message !</div>
-        <div class="flash-message" data-type="error" data-timeout="8000">My sadly sad error message !</div> -->
     <div class="triangle-corner"></div>
 
+    <!-- Header -->
     <header class="logo">
       <img src="./img/logo.svg" alt="Logo app">
     </header>
+    <!-- End Header -->
 
+    <!-- Description -->
     <section class="app-description">
       <div class="app-description-container">
         <h1>Number system converter</h1>
         <p class="subhead">Convert numbers between different numerical systems</p>
       </div>
     </section>
+    <!-- End Description -->
 
+    <!-- Form -->
     <section class="form-app-description">
       <div class="dropdown">
-        <!-- <button id="fromSystem" type="button" class="btn-from-converter">From</button> -->
+        <!-- From select menu -->
         <div id="selectMenu1" class="select-menu">
-          <select>
+          <select id="fromOption" name="fromMenu">
             <option value="0">From</option>
             <option value="1">Decimal</option>
             <option value="2">Binary</option>
-            <option value="3">Octal</option>
-            <option value="4">Hexadecimal</option>
+            <!-- <option value="3">Octal</option>
+            <option value="4">Hexadecimal</option> -->
           </select>
         </div>
 
         <span class="helper-text">to</span>
+        <!-- To select menu-->
         <div id="selectMenu2" class="select-menu">
-            <select>
-              <option value="0">...</option>
-              <option value="1">Decimal</option>
-              <option value="2">Binary</option>
-              <option value="3">Octal</option>
-              <option value="4">Hexadecimal</option>
-            </select>
-          </div>
+          <select id="toOption" name="toMenu">
+            <option value="0">...</option>
+            <option value="1">Decimal</option>
+            <option value="2">Binary</option>
+            <!-- <option value="3">Octal</option>
+            <option value="4">Hexadecimal</option> -->
+          </select>
+        </div>
       </div>
-
-
+      <!-- User input and submit button-->
       <div class="form-app">
         <input id="userInput" type="text" class="input-number" placeholder="Enter a number">
         <button id="btnConversion" type="button" class="btn-show-result hvr-sweep-to-right">CONVERT</button>
       </div>
     </section>
+    <!-- End Form -->
 
+    <div id="outputNumber" class="output-conversion"></div>
+
+    <!-- Footer -->
     <footer>
       <div class="footer-container">
         <ul class="footer-links">
@@ -72,10 +79,14 @@
         </ul>
       </div>
     </footer>
+    <!-- End Footer -->
   </div>
-  <script src="./js/selectMenu.js"></script>
 
+  <!-- Javascript resources -->
   <script src="./js/main.js"></script>
+  <!-- <script src="./js/selectMenu.js"></script> -->
+  
+
 </body>
 
 </html>
