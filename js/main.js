@@ -8,7 +8,6 @@ let flashMessage = document.getElementById('flashMessage')
 
 
 // -------------------------------------------
-
 let conversion = {}
 let x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "select-menu":*/
