@@ -8,6 +8,18 @@ let btnConverter = document.getElementById('btnConversion')
 let outputNumber = document.getElementById('outputNumber')
 let flashMessage = document.getElementById('flashMessage')
 let resetBtn = document.getElementById('resetBtn')
+let fromDropdownMenu = document.getElementById('fromSystem')
+let toDropdownMenu = document.getElementById('toSystem')
+
+// Show dropdown menu when From button is click
+fromDropdownMenu.addEventListener('click', function () {
+  document.getElementById('dropdownMenu1').classList.toggle('show')
+})
+
+// Show dropdown menu when To button is click
+toDropdownMenu.addEventListener('click', function () {
+  document.getElementById('dropdownMenu2').classList.toggle('show')
+})
 
 // Handle reset button to set input to empty or null values and hide flash messages
 resetBtn.addEventListener('click', function onReset(e) {  

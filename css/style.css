@@ -79,18 +79,16 @@ h1 {
   margin: 0 1.5em;
 }
 /* Dropdown menu */
-.show {
-  display: block;
-}
+
 .dropdown {
   position: relative;
-  /* display: block; */
+  display: block;
 }
 .dropdown-menu {
   display: none;
   font-size: 14px;
   z-index: 10;
-  border: solid 2px gray;
+  border: solid 1px gray;
   border-radius: 3px;
   min-width: 11%;
   list-style-type: none;
@@ -106,10 +104,13 @@ h1 {
   color: #1E1E1E;
   text-align: center;
 }
+.dropdown-menu li:hover {
+  background: rgb(217, 217, 217, 0.3);
+}
+.show {
+  display: block;
+}
 
-/* .form-app-container {
-    margin-bottom: 
-} */
 
 .form-app {
     margin-top: 50px;
