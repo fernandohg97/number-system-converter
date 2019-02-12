@@ -8,14 +8,20 @@ body {
 
 .flash-msg {
   display: none;
-  width: 50%;
+  width: 40%;
   text-align: center;
+  margin: 0 auto;
   font-family: 'Raleway', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   padding: 0.8em;
   color: white;
   background: linear-gradient(to right, #EC5050, #972626);
+  border-radius: 3px;
+  top: 1.5em;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .triangle-corner {
@@ -147,12 +153,14 @@ input {
     margin-left: 2em;
 }
 
-.reset-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  margin: 0.7em 0 0 2em;
+.output-conversion {
+  font-size: 28px;
+  font-weight: 550;
+  font-family: 'Questrial', sans-serif;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-top: 1.8em;
+  display: none;
 }
 
 footer {
