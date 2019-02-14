@@ -125,7 +125,7 @@ btnConverter.addEventListener('click', function onReset(e) {
 // NUMERICAL SYSTEMS ALGORITHMS
 
 // Validate user input value function
-function validateInput(input) {
+function validateDecimal(input) {
   setTimeout(function () {
     flashMessage.style.display = 'none'
   }, 4000)   
@@ -139,6 +139,21 @@ function validateInput(input) {
     flashMessage.style.display = 'block'
     // flashMessage.style.backgroundColor = 'red'
     throw new Error('You must enter a numeric value greater than cero')
+  }
+}
+
+function validateBinary(input) {
+  setTimeout(function () {
+    flashMessage.style.display = 'none'
+  }, 4000)
+  let isValid = input.split('').every(function(el) {
+    return el >= 0 && el < 2
+  })
+
+  if (!isValid) {
+    flashMessage.innerHTML = 'You must enter a binary number'
+    flashMessage.style.display = 'block'
+    throw new Error('You must enter a binary number')
   }
 }
 
@@ -160,7 +175,7 @@ function onConversion(err, result) {
 // Decimal to Binary logic function
 function toBinary(number, callback) {
 
-  validateInput(number) 
+  validateDecimal(number) 
 
   let binaryNumber = []
 
@@ -175,7 +190,7 @@ function toBinary(number, callback) {
 // Binary to Decimal logic function
 function toDecimal(number, callback) {
 
-  validateInput(number)
+  validateBinary(number)
   
   let inputLength = number.length // Get length of the user input
   let binaryArray = number.split('').map(e => Number(e)) // Save user input value into an array
