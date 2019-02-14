@@ -93,11 +93,13 @@ h1 {
   background: linear-gradient(to right, #2F78AA, #004B7D);
   color: white;
   border-radius: 3px;
+  font-weight: 550;
 }
 .select-items div, .select-selected {
-  padding: 0.5em;
+  padding: 0.8em;
   text-align: center;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .select-items {
@@ -109,7 +111,7 @@ h1 {
   z-index: 99;
   border: solid 1px gray;
   border-radius: 3px;
-  font-size: 16px;
+  /* font-size: 14px; */
 }
 .select-hide {
   display: none;
@@ -131,7 +133,7 @@ input {
     border-right: none;
     border-left: none;
     text-decoration: none;
-    border-bottom: solid thin #3D3D3D;
+    border-bottom: solid 1.2px #3D3D3D;
     width: 28%;
     padding-bottom: 4px;
     padding-left: 2px;
@@ -142,14 +144,14 @@ input {
     background: inherit;
     border: solid 1.5px #154261;
     font-family: 'Raleway', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     border-radius: 3px;
     color: #154261;
     cursor: pointer;
-    padding: 0.7em 2.5em;
-    margin-top: -1em;
+    padding: 0.6em 2.2em;
+    margin-top: -1.2em;
     margin-left: 2em;
 }
 
@@ -244,9 +246,6 @@ footer {
     .select-menu{
       width: 28%;
     }
-    .select-selected, .select-items {
-      font-size: 14px;
-    }
     .btn-show-result {
         padding: 0.7em 2.5em;
         margin: 0 auto;
@@ -257,14 +256,13 @@ footer {
       margin: 0 auto;
       width: 72%;
     }
-    .reset-btn {
-      margin: 0.7em 0 0 1em;
-      display: inline-block;
+    .output-conversion {
+      margin-top: 1.2em;
     }
 
     .footer-links li {
         font-size: 12px;
-        margin-top: 1.2em;
+        margin-top: 1em;
     }
     
     .footer-links li:first-child {
@@ -293,9 +291,9 @@ footer {
     .select-menu{
       width: 22%;
     }
-    .select-selected, .select-items {
+    /* .select-selected, .select-items {
       font-size: 16px;
-    }
+    } */
     .triangle-corner {
         border-left: 15em solid transparent;
         border-right: 15em solid transparent;
