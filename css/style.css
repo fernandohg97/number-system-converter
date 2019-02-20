@@ -25,14 +25,13 @@ body {
 }
 
 .triangle-corner {
-    top: 0;
-    right: -13em;
+    right: -16em;
     border-left: 16em solid transparent;
 	  border-right: 16em solid transparent;
     border-bottom: 16em solid #3F454A;
     top: -3em;
     transform: rotate(45deg);
-    position: absolute;
+    position: fixed;
     z-index: -1;
 }
 
@@ -168,6 +167,7 @@ input {
 footer {
     background: #3F454A;
     height: 10%;
+    left: 0;
     bottom: 0;
     margin: 0;
     position: absolute;
@@ -216,7 +216,7 @@ footer {
 
 
 /* Only for small screen devices */
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 750px) {
     .triangle-corner {
         border-left: 12em solid transparent;
         border-right: 12em solid transparent;
