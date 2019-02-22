@@ -31,6 +31,7 @@ You can open an issue for any suggestion or comment.
 1. Fork this repository to your own Github account.
 2. Clone the repository to you local device.
 3. If you use VSCode, you can install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) plugin to test the website in realtime, if not you can only open the ``index.html`` file in the browser and watch your changes.
+4. Create a pull request to verify your changes.
 
 
 
