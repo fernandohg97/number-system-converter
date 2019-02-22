@@ -27,7 +27,6 @@ export class Validation {
     })
   
     if (!isValid) { 
-
       setTimeout(function () {
         flashMessage.style.display = 'none'
       }, 4000) // After 4 seconds hide the flash message

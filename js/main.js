@@ -1,6 +1,7 @@
 import numericalSystem from './selectMenu.mjs'
 import toDecimal from './conversions/decimalBinary.mjs'
 import toBinary from './conversions/binaryDecimal.mjs'
+import toOctal from './conversions/decimalOctal.mjs'
 
 
 // Get HTML elements and assign it to a variable
@@ -33,8 +34,9 @@ btnConverter.addEventListener('click', function onReset(e) {
       toDecimal(userInput.value, onConversion) // Execute Decimal to Binary algorithm
     } else if (numericalSystem.from == 'Binary' && numericalSystem.to == 'Decimal') {
       toBinary(userInput.value, onConversion) // Execute Binary to Decimal algorithm
+    } else if (numericalSystem.from == 'Decimal' && numericalSystem.to == 'Octal') {
+      toOctal(userInput.value, onConversion) // Execute Decimal to Octal algorithm
     } else {
-
       setTimeout(function () {
         flashMessage.style.display = 'none'
       }, 4000) // After 4 seconds close the flash message
@@ -50,7 +52,6 @@ btnConverter.addEventListener('click', function onReset(e) {
 // Callback function
 function onConversion(err, result) {
   if (err) {
-
     setTimeout(function () {
       flashMessage.style.display = 'none'
     }, 4000) // After 4 seconds close the flash message
