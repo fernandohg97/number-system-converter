@@ -36,4 +36,18 @@ export class Validation {
       throw new Error('You must enter a binary number')
     }
   }
-} 
+
+  static validateOctal(input) {
+    if (isNaN(input) || (input % 1 != 0) || input === '') { 
+      flashMessage.innerHTML = 'You must enter an integer value'
+      flashMessage.style.display = 'block'
+      throw new Error('You must enter an integer value')
+    }
+
+    if (!input.split('').every(function(el) { return el >= 0 && el < 8  })) {
+      flashMessage.innerHTML = 'You must enter an octal number'
+      flashMessage.style.display = 'block'
+      throw new Error(flashMessage.innerHTML)
+    }
+  }
+}
