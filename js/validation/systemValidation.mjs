@@ -38,6 +38,11 @@ export class Validation {
   }
 
   static validateOctal(input) {
+    
+    setTimeout(function () {
+      flashMessage.style.display = 'none'
+    }, 4000)  // Close the flash error message after 4 seconds
+
     if (isNaN(input) || (input % 1 != 0) || input === '') { 
       flashMessage.innerHTML = 'You must enter an integer value'
       flashMessage.style.display = 'block'
