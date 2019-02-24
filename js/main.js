@@ -6,7 +6,6 @@ import octal2Decimal from './conversions/octalDecimal.mjs'
 
 
 // Get HTML elements and assign it to a variable
-// let btnChangeSystem = document.getElementById('fromOption')
 let userInput = document.getElementById('userInput')
 let btnConverter = document.getElementById('btnConversion')
 let outputNumber = document.getElementById('outputNumber')
@@ -17,10 +16,6 @@ let flashMessage = document.getElementById('flashMessage')
 btnConverter.addEventListener('click', function onReset(e) {  
   // In case the input fields have not been filled
   if (userInput.value === '' || !numericalSystem.from || !numericalSystem.to) {
-    console.log(userInput.value);
-    console.log(numericalSystem.from);
-    console.log(numericalSystem.to);
-    
     
     setTimeout(function () {
       flashMessage.style.display = 'none'
@@ -47,25 +42,25 @@ btnConverter.addEventListener('click', function onReset(e) {
       flashMessage.innerHTML = 'Please select two different numerical systems'
       flashMessage.style.display = 'block'
     }
-
   }
   e.preventDefault()
 })
 
 // Callback function
 function onConversion(err, result) {
+  // In case error exists
   if (err) {
     setTimeout(function () {
       flashMessage.style.display = 'none'
     }, 4000) // After 4 seconds close the flash message
 
     // Display in the html document the flash error message
-    flashMessage.innerHTML = 'Oops! There was an error calculating the result'
+    flashMessage.innerHTML = err.message
     flashMessage.style.display = 'block'
 
-    console.log('Hubo un error: ' + err) // Print in console
     return
   }
+
   // Show in the html document the result
   outputNumber.style.display = 'block'
   outputNumber.innerHTML = result
@@ -75,7 +70,7 @@ function onConversion(err, result) {
     outputNumber.innerHTML = null
   }, 10000) // After 10 seconds close the result message
 
-  console.log(`The result is: ${result}`)
+  // console.log(`The result is: ${result}`)
 }
 
 
