@@ -1,58 +1,44 @@
-// Validate user input value function
-
+// Class Validation
+// Contains validation methods for each numerical system
 export class Validation {
 
    static validateDecimal(input) {
-    setTimeout(function () {
-      flashMessage.style.display = 'none'
-    }, 4000)   
-    // In case input is not a number or is a decimal number
+
+    // Create an instance error with specified message
+    const err = new Error('You must enter an integer value')
+
+    // In case input is not a number or is a decimal number or is empty
     if (isNaN(input) || (input % 1 != 0) || input === '') { 
-      flashMessage.innerHTML = 'You must enter an integer value'
-      flashMessage.style.display = 'block'
-      throw new Error('You must enter an integer value')
-    } else if (input <= 0) {    
-      flashMessage.innerHTML = 'You must enter a numeric value greater than cero'
-      flashMessage.style.display = 'block'
-      // flashMessage.style.backgroundColor = 'red'
-      throw new Error('You must enter a numeric value greater than cero')
+      return err
+    } else if (input <= 0) {  // In case is a negative number
+      err.message = 'You must enter a numeric value greater than cero'
+      return err
     }
   }
   
   static validateBinary(input) {
+
+    // Create an instance error with specified message
+    const err = new Error('You must enter a binary number')
 
     // Validating each number is between 0 and 1
     let isValid = input.split('').every(function(el) {
       return el >= 0 && el < 2 
     })
   
-    if (!isValid) { 
-      setTimeout(function () {
-        flashMessage.style.display = 'none'
-      }, 4000) // After 4 seconds hide the flash message
-
-      flashMessage.innerHTML = 'You must enter a binary number'
-      flashMessage.style.display = 'block'
-      throw new Error('You must enter a binary number')
-    }
+    if (!isValid) { return err }
   }
 
   static validateOctal(input) {
+
+    // Create an instance error with specified message
+    const err = new Error('You must enter an octal number')
     
-    setTimeout(function () {
-      flashMessage.style.display = 'none'
-    }, 4000)  // Close the flash error message after 4 seconds
-
-    if (isNaN(input) || (input % 1 != 0) || input === '') { 
-      flashMessage.innerHTML = 'You must enter an integer value'
-      flashMessage.style.display = 'block'
-      throw new Error('You must enter an integer value')
-    }
-
-    if (!input.split('').every(function(el) { return el >= 0 && el < 8  })) {
-      flashMessage.innerHTML = 'You must enter an octal number'
-      flashMessage.style.display = 'block'
-      throw new Error(flashMessage.innerHTML)
+    if (isNaN(input) || (input % 1 != 0) || input === '') { // Validating number is not string, decimal or empty
+      err.message = 'You must enter an integer value'
+      return err
+    } else if (!input.split('').every(function(el) { return el >= 0 && el < 8  })) { // Validation each number is between 0 and 7
+      return err
     }
   }
 }
