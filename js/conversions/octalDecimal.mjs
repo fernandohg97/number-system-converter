@@ -2,8 +2,10 @@ import { Validation } from '../validation/systemValidation.mjs'
 
 export default function octal2Decimal(number, callback) {
 
-    Validation.validateOctal(number)
+    const err = Validation.validateOctal(number)
     
+    if (err) { return callback(err) }
+
     let numArray = number.split('').map(e => Number(e))
     let potentialNumbers = []
 
@@ -14,5 +16,5 @@ export default function octal2Decimal(number, callback) {
       sum += item
     }
   
-    callback(null, sum)
+    return callback(null, sum)
   }

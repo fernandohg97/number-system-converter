@@ -3,7 +3,9 @@ import { Validation } from '../validation/systemValidation.mjs'
 // Decimal to Octal logic function
 export default function toOctal(number, callback) {
 
-  Validation.validateDecimal(number)
+  const err = Validation.validateDecimal(number)
+
+  if (err) { return callback(err) }
 
   let octalNumber = []
   let residue
@@ -13,5 +15,5 @@ export default function toOctal(number, callback) {
     octalNumber.push(residue)
     number = Math.floor(number / 8)
   }
-  callback(null, octalNumber.reverse().join(''))
+  return callback(null, octalNumber.reverse().join(''))
 }

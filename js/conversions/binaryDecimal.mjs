@@ -3,7 +3,9 @@ import { Validation } from '../validation/systemValidation.mjs'
 // Binary to Decimal logic function
 export default function toDecimal(number, callback) {
 
-  Validation.validateBinary(number)
+  const err = Validation.validateBinary(number)
+
+  if (err) { return callback(err) }
   
   let inputLength = number.length // Get length of the user input
   let binaryArray = number.split('').map(e => Number(e)) // Save user input value into an array
@@ -28,7 +30,8 @@ export default function toDecimal(number, callback) {
     }
   });
 
-  callback(null, sum)  
+  
+  return callback(null, sum)
   
 }
 

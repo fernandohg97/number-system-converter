@@ -3,7 +3,9 @@ import { Validation } from '../validation/systemValidation.mjs'
 // Decimal to Binary logic function
 export default function toBinary(number, callback) {
 
-  Validation.validateDecimal(number)
+  const err = Validation.validateDecimal(number)
+
+  if (err) { return callback(err) }
 
   let binaryNumber = []
   let residue
@@ -13,5 +15,5 @@ export default function toBinary(number, callback) {
     binaryNumber.push(residue)
     number = Math.floor(number / 2)
   }
-  callback(null, binaryNumber.reverse().join(''))
+  return callback(null, binaryNumber.reverse().join(''))
 }
